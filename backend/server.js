@@ -1,11 +1,9 @@
 const express = require("express");
 const cors = require("cors");
-const path = require("path");
 require("dotenv").config();
 
 const app = express();
 
-// CORS
 app.use(cors({
   origin: "https://gitam-mca-hub.vercel.app",
   methods: ["GET","POST","PUT","DELETE","OPTIONS"],
@@ -26,6 +24,11 @@ app.use("/api/users", require("./routes/users"));
 // Health check
 app.get("/", (req, res) => {
   res.json({ message: "🎓 GITAM MCA Hub API is running!" });
+});
+
+/* ✅ PASTE YOUR PING ROUTE HERE */
+app.get("/api/ping", (req,res)=>{
+  res.json({status:"ok"})
 });
 
 const PORT = process.env.PORT || 10000;
