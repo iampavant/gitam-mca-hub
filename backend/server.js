@@ -2,6 +2,14 @@ const express = require("express");
 const cors    = require("cors");
 const path    = require("path");
 require("dotenv").config();
+const cors = require("cors");
+
+app.use(cors({
+  origin: "https://gitam-mca-hub.vercel.app",
+  methods: ["GET","POST","PUT","DELETE","OPTIONS"],
+  allowedHeaders: ["Content-Type","Authorization"],
+  credentials: true
+}));
 
 const app = express();
 
